@@ -50,7 +50,7 @@ function buildConfig(mode) {
 		module: {
 			loaders: removeEmpty([
 				// { test: /\.json$/, loader: "json" },
-				{ test: /\.(js|jsx)$/, loaders: ["babel-loader"], exclude: /node_modules/ },
+				{ test: /\.(js|jsx)$/, loaders: ["babel-loader"]},
 				...loadersForDocs,
 			])
 		},
