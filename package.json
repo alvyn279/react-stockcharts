@@ -31,7 +31,9 @@
     "npm:publish:latest": "npm run release && cd build && npm publish",
     "info": "npm info react-stockcharts",
     "sourcemap:visualize": "source-map-explorer build/dist/react-stockcharts.min.js build/dist/react-stockcharts.min.js.map",
-    "server": "cd build && python3 -m http.server 8090"
+    "server": "cd build && python3 -m http.server 8090",
+    "buildToRoot": "cp -r build/* .",
+    "localPublish": "npm i && npm run build && npm run release && npm run buildToRoot && npm pack"
   },
   "dependencies": {
     "babel-preset-es2015": "^6.24.1",
