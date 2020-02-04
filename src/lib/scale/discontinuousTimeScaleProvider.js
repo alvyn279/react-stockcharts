@@ -1,4 +1,4 @@
-
+import NanoDate from "nano-date";
 
 import { timeFormat, timeFormatDefaultLocale } from "d3-time-format";
 // import { map as d3Map } from "d3-collection";
@@ -107,7 +107,7 @@ function doStuff(realDateAccessor, inputDateAccessor, initialIndex, formatters) 
 				// ...each,
 				index: each.index,
 				level: each.level,
-				date: new Date(each.date),
+				date: new NanoDate(each.date),
 				format: timeFormat(format),
 			};
 		});
@@ -232,7 +232,7 @@ export function discontinuousTimeScaleProviderBuilder() {
 			const date = dateAccessor(d);
 			// The getTimezoneOffset() method returns the time-zone offset from UTC, in minutes, for the current locale.
 			const offsetInMillis = date.getTimezoneOffset() * 60 * 1000;
-			return new Date(date.getTime() + offsetInMillis);
+			return new NanoDate(date.getTime() + offsetInMillis);
 		};
 		return discontinuousTimeScaleProvider;
 	};
